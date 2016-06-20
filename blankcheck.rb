@@ -30,7 +30,6 @@ TRANSLATE = {
   "80" => "eighty",
   "90" => "ninety"
 }
-
 num = ARGV[0]
 
 def string(num)
@@ -39,8 +38,9 @@ def string(num)
   when (0..2)
     if TRANSLATE[num].is_a? String
       puts TRANSLATE[num]
-    else
-
+    else arr = num.to_i.divmod(10)
+      puts TRANSLATE[arr[0].to_s + "0"] + "-" + TRANSLATE[arr[1].to_s]
+    end
   when (2..9)
     puts "nein"
   end
